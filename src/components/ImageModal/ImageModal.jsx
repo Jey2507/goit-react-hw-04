@@ -28,7 +28,7 @@ export default function ImageModal({ open, selectedImage, onClose }) {
     <Modal isOpen={open} style={customStyles} shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true} onRequestClose={onClose} contentLabel="Example Modal">
       {selectedImage && (
-          <img className={css.image} src={selectedImage.urls.regular} alt={selectedImage.alt_description} />
+          <img className={css.image} src={selectedImage} alt={selectedImage.alt_description} />
       )}
     </Modal>
   );

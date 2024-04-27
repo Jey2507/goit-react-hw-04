@@ -32,15 +32,19 @@ export default function App() {
     setPage(page + 1);
   }
 
+
   useEffect(() => {
     async function getImages() {
       if (query === "") {
         return;
       }
-  
+      setError(false)
       try {
         setSpinner(true);
         const data = await fetchImages(query, page);
+        if (data.length === 0) {
+          throw new Error("No item..");
+      }
         setGallery(prevGallery => [...prevGallery, ...data]);
       } catch (error) {
         setError(true);
